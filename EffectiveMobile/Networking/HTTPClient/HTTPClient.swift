@@ -23,9 +23,6 @@ class HTTPClient {
     }
     
     func getFromRequest(request: URLRequest, callback: @escaping completeClosure) {
-//        let request = NSMutableURLRequest(url: url)
-//        request.httpMethod = "GET"
-     //   let task = URLSession(configuration: .default)
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             callback(data, error)
         }

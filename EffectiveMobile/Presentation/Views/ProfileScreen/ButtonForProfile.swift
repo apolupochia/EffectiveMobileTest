@@ -17,8 +17,8 @@ struct ButtonForProfile: View {
  
             Button {
                 if imageName == "logOut"{
-                    coordinator.coordinatorStarts = true
-                    coordinator.coordinatorTab = Tab.home
+                    coordinator.crossToLoginOrSing()
+                    coordinator.crossToTab(tab: Tab.home)
                 }
             } label: {
                 HStack{

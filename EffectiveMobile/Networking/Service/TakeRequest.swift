@@ -11,7 +11,7 @@ final class TakeRequest{
     static func requestFromAfressEffectiveMobile(urlString : String) -> URLRequest? {
         guard var url = URL(string: urlString) else {return nil}
         var request = URLRequest(url: url)
-        //request.httpMethod = "GET"
+        request.httpMethod = "GET"
         return request
     }
 }

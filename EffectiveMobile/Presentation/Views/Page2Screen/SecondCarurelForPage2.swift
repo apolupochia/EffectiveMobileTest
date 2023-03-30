@@ -16,19 +16,9 @@ struct SecondCarurelForPage2: View {
             ForEach(viewModel.curuselImagesPage2.info){elemrnt in
                 Button {
                     updateHeight(value: elemrnt.id)
-                  //  elemrnt.largeSize = true
-                   // updateHeight(sting: elemrnt.)
                     
                 } label: {
-                    AsyncImage(url: URL(string: elemrnt.imageString)) { image in
-                        image
-                            .resizable()
-                            .frame(width: 80, height: elemrnt.largeSize ? 60 : 40)
-                            .scaledToFill()
-                            .cornerRadius(10)
-                    } placeholder: {
-                   //     Color.purple.opacity(0.1)
-                    }
+                    image(info: elemrnt)
                     
 
                 }
@@ -41,6 +31,26 @@ struct SecondCarurelForPage2: View {
             
         }
     }
+    
+    
+    private func image(info : infoForCarusel) -> some View{
+        AsyncImage(url: URL(string: info.imageString)) { phase in
+            if let image = phase.image{
+                image
+                    .resizable()
+                    .frame(width: 80, height: info.largeSize ? 60 : 40)
+                    .scaledToFill()
+                    .cornerRadius(10)
+            } else {
+                ProgressView()
+                    .frame(width: 15, height: 15)
+                    .padding()
+            }
+        }
+    }
+    
+    
+    
     func updateHeight(value : UUID){
         
         var lastCount : CGFloat = -1

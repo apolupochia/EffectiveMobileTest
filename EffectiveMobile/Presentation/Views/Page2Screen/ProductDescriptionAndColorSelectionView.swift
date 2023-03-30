@@ -9,7 +9,15 @@ import SwiftUI
 
 struct ProductDescriptionAndColorSelectionView: View {
     var body: some View {
+       content
+        .padding(.leading, 16)
+    
+    }
+    
+    
+    var content : some View {
         VStack{
+            
             HStack{
                 Text("New balance")
                     .font(Font.custom("Montserrat-Bold", size: 20))
@@ -101,13 +109,9 @@ struct ProductDescriptionAndColorSelectionView: View {
                 
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-          //  .padding(.leading,16)
             
 
         }
-        .padding(.leading, 16)
-        
-       // .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

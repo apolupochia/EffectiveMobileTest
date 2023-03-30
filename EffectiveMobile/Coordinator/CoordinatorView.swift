@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct CoordinatorView: View {
-    @State var tab = Tab.home
-    @StateObject var coordinator = Coordinator()
+   
+    @ObservedObject var coordinator : Coordinator
     var body: some View {
         Group{
-            if coordinator.coordinatorStarts{
-                switch coordinator.coordinatorStart{
+            switch coordinator.loginOrMainViewCoordinator{
+                
+            case .loginOrSing:
+                switch coordinator.loginOrSingCoordinator{
                 case .loginIn:
                     LoginINScrren(coordinator: coordinator)
                     
@@ -21,11 +23,12 @@ struct CoordinatorView: View {
                     SingInScreen(coordinator: coordinator)
                     
                 }
-            } else {
+                
+            case .mainTab:
                 
                 ZStack{
                 
-                    switch coordinator.coordinatorTab{
+                    switch coordinator.tabCoordinator{
                     case .home:
                         Page1Screen(coordinator: coordinator)
                    
@@ -39,7 +42,7 @@ struct CoordinatorView: View {
                         ProfileScreen(coordinator: coordinator)
                     }
                     
-                    if coordinator.page2{
+                    if coordinator.page2Coordinator == Page2IsVisible.visible{
                         Page2Screen( coordinator: coordinator)
                             .background(.white)
                     }
@@ -55,6 +58,6 @@ struct CoordinatorView: View {
 
 struct CoordinatorView_Previews: PreviewProvider {
     static var previews: some View {
-        CoordinatorView()
+        CoordinatorView(coordinator: Coordinator())
     }
 }

@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct EffectiveMobileApp: App {
+    @StateObject var coordinator = Coordinator()
     var body: some Scene {
         WindowGroup {
-            CoordinatorView()
+            CoordinatorView(coordinator: coordinator)
         }
     }
 }

@@ -7,25 +7,19 @@
 
 import Foundation
 import UIKit
+import Combine
 import SwiftUI
 
-enum APIAdresses : String {
-    case recentlyViewedProductsForPage1 = "https://run.mocky.io/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7"
-    case saleOfProductsForPage1 = "https://run.mocky.io/v3/a9ceeb6e-416d-4352-bde6-2203416576ac"
-    
-    case saleOfProductsForPage2 = "https://run.mocky.io/v3/f7f99d04-4971-45d5-92e0-70333383c239"
-    
+
+protocol NetworkingManagerProtocol : AnyObject {
+    func getImagesForPage1ScreenCaruselOne(responce: @escaping (RecentlyVieweModel) -> Void)
+    func getImagesForPage1ScreenCaruselTwo(responce: @escaping (SaleOfProductsPage1) -> Void)
+    func getImagesForPage2ScreenCarusel(responce: @escaping (SaleOfProductsPage2) -> Void)
 }
 
-public enum HTTPMethod : String {
-    case get     = "GET"
-    case post    = "POST"
-    case put     = "PUT"
-    case patch   = "PATCH"
-    case delete  = "DELETE"
-}
 
-final class NetworkingManager{
+
+final class NetworkingManager : NetworkingManagerProtocol{
 
     
     func getImagesForPage1ScreenCaruselOne(responce: @escaping (RecentlyVieweModel) -> Void) {
@@ -131,5 +125,7 @@ final class NetworkingManager{
 
          }
     }
+    
+
     
 }

@@ -36,11 +36,3 @@ struct FirstCaruselForPage1View_Previews: PreviewProvider {
 }
 
 
-var choiseItemsHere = [
-    DeviceItem(icon: "iphone", item: .phones),
-    DeviceItem(icon: "headphones", item: .headPhones),
-    DeviceItem(icon: "gamecontroller", item: .games),
-    DeviceItem(icon: "car", item: .cars),
-    DeviceItem(icon: "bed.double", item: .furniture),
-    DeviceItem(icon: "tennisball", item: .kids)
-]

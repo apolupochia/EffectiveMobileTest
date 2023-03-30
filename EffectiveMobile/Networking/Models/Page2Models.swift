@@ -19,3 +19,28 @@ struct SaleOfProductsPage2: Codable {
     let image_urls: [String]
 
 }
+
+
+
+struct infoCarusel {
+    var count : Int
+    var info : [infoForCarusel]
+}
+
+struct infoForCarusel : Identifiable {
+    let id = UUID()
+  
+    let imageString : String
+    var largeSize : Bool
+
+}
+
+struct InfoForCarusel1{
+    var x : CGFloat
+    var count : CGFloat
+    var screen : CGFloat
+    var op : CGFloat
+    
+    var num : Int
+}
+
